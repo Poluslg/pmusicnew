@@ -34,6 +34,13 @@ const router = createBrowserRouter([
           return { Component:Newac };
         },
       },
+      {
+        path:"*",
+        async lazy() {
+            let { ErrorPage } = await import("./Components/ErrorPage");
+            return { Component: ErrorPage };
+        },
+    },
     ],
   },
 ]);
