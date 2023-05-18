@@ -1,12 +1,12 @@
-import { useState, useEffect } from "react";
+import {  useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import Afterlogin from "./Afterlogin";
+// import Afterlogin from "./Afterlogin";
 import { app } from "../Firebase";
 
-export default function Login() {
+export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const auth = getAuth(app);
@@ -20,7 +20,8 @@ export default function Login() {
         const user = userCredential.user;
         localStorage.setItem("token", user.accessToken);
         localStorage.setItem("uid", user.uid);
-        gsing();
+        console.log("token")
+        navigateTo("/afterlogin");
       })
       .catch((error) => {
         if (error.code === "auth/user-not-found") {
@@ -30,15 +31,17 @@ export default function Login() {
         } else if (error.code === "auth/wrong-password") {
           setError("Wrong password");
         } else if (error.code === "auth/internal-error") {
-          setError("Please enter a password");
-        } else {
+          setError("Server Error");
+        }
+        else if (error.code === "auth/missing-password") {
+          setError("Please enter the password");
+        }
+         else {
           setError(error.code);
         }
       });
   };
-
-
-
+ 
   const cancel = () => {
     navigateTo("/");
   };
@@ -57,38 +60,31 @@ export default function Login() {
     prompt: "select_account",
   });
 
-  // const gsing = () => {
-  //   signInWithPopup(auth, provider)
-  //     .then((userCredential) => {
-  //       const user = userCredential.user;
-  //       localStorage.setItem("googleToken", user.accessToken);
-  //       localStorage.setItem("uid", user.uid);
-  //       slogin();
-  //     })
-  //     .catch((error) => {
-  //       alert(error);
-  //     });
-  // };
+  const gsing = () => {
+    signInWithPopup(auth, provider)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        localStorage.setItem("googleToken", user.accessToken);
+        localStorage.setItem("uid", user.uid);
+      })
+      .catch((error) => {
+        alert(error);
+      });
+  };
 
-  // const slogin = () => {
-  //   const clientId = "4ce3666a4df44b2d814fddebfee41d55";
-  //   const redirectUrl = "http://localhost:5173/login";
-  //   const apiUrl = "https://accounts.spotify.com/authorize";
-  //   const scope = [
-  //     "user-read-email",
-  //     "user-read-private",
-  //     "user-read-playback-state",
-  //     "user-modify-playback-state",
-  //     "user-read-currently-playing",
-  //     "user-read-playback-position",
-  //     "user-top-read",
-  //     "user-read-recently-played",
-  //   ];
-  //   window.location.href = `${apiUrl}?client_id=${clientId}&redirect_uri=${redirectUrl}&scope=${scope.join(
-  //     " "
-  //   )}&response_type=token&show_dialog=true`;
-  // };
 
+
+  // useEffect(() => {
+  //   const hash = window.location.hash;
+  //   if (hash) {
+  //     const token = hash.substring(1).split("&")[0].split("=")[1];
+  //     if (token && token.length) {
+  //       localStorage.setItem("token", token); // Add key parameter to setItem
+  //       console.log(token);
+  //       navigateTo("/afterlogin"); // Make sure navigateTo function is defined/imported correctly
+  //     }
+  //   }
+  // }, []);
 
   return (
     <>
@@ -170,7 +166,7 @@ export default function Login() {
           </div>
 
           <div className=" logos w-full">
-            {/* <div className="googlelogoborder">
+            <div className="googlelogoborder">
               <button type="submit" onClick={gsing}>
                 Connect with google
               </button>
@@ -179,7 +175,7 @@ export default function Login() {
                 alt="Google-Login"
                 className="googlelogo"
               />
-            </div> */}
+            </div>
 
             {/* <div className="spotifylogoborder">
                 <button type="submit" onClick={slogin}>
@@ -201,18 +197,18 @@ export default function Login() {
               <span className="absolute inset-y-0 left-0 flex items-center pl-3"></span>
               Sign in
             </button>
-            <div className="btnac">
+            <div className="flex items-center justify-between pt-4">
               <button
                 type="submit"
                 onClick={newac}
-                className="group relative flex w-full justify-center rounded-md border  bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                className="group relative flex w-full justify-center font-medium text-red-600 hover:text-indigo-500"
               >
                 Create a new Account
               </button>
               <button
                 type="submit"
                 onClick={cancel}
-                className="group relative flex w-full justify-center rounded-md border  bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                className="group relative flex w-full justify-center font-medium text-red-600 hover:text-indigo-500"
               >
                 Cancel
               </button>
@@ -222,4 +218,4 @@ export default function Login() {
       </div>
     </>
   );
-}
+};

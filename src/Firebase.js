@@ -1,22 +1,27 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getDatabase } from "firebase/database";
+import { getAnalytics } from "firebase/analytics";
+import { getAuth } from "firebase/auth";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyAvkfJ3dqzvBLCxyhR28BnSg4WB0shRZ0E",
-  authDomain: "pmusiclogin-b55ef.firebaseapp.com",
-  projectId: "pmusiclogin-b55ef",
-  storageBucket: "pmusiclogin-b55ef.appspot.com",
-  messagingSenderId: "475738216650",
-  appId: "1:475738216650:web:a2117487f278ab3600bc33",
-  databaseURL: "https://pmusiclogin-b55ef-default-rtdb.firebaseio.com/",
+  apiKey: "AIzaSyBjl18MuEvLOq2xsmA6x-6f0EaOhYdQweQ",
+  authDomain: "pmusicnew-107ec.firebaseapp.com",
+  projectId: "pmusicnew-107ec",
+  storageBucket: "pmusicnew-107ec.appspot.com",
+  messagingSenderId: "814106209295",
+  appId: "1:814106209295:web:33c21809a6d28b1d54077a",
+  measurementId: "G-BEEXCQMRD1",
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const database = getDatabase(app);
-export { app, database };
+// const analytics = getAnalytics(app);
+
+const auth=getAuth();
+
+export {app,auth};

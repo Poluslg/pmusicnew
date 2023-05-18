@@ -1,8 +1,8 @@
-import React from 'react'
 
-export default function AfterLogin() {
+export const AfterLogin=()=> {
   return (
     <div>
+      
       AfterLogin
     </div>
   )

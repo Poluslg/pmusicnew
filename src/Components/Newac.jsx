@@ -4,7 +4,7 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { getDatabase, ref, set } from "firebase/database";
 import { app } from "../Firebase";
 
-export default function Newac() {
+export const Newac=()=> {
   const auth = getAuth(app);
   const navigate = useNavigate();
   const inputFirstName = useRef(null);
