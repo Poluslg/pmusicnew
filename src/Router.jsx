@@ -1,4 +1,8 @@
-import { createBrowserRouter, redirect, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  redirect,
+  RouterProvider,
+} from "react-router-dom";
 import Base from "./Components/Base";
 
 const router = createBrowserRouter([
@@ -9,10 +13,8 @@ const router = createBrowserRouter([
       {
         index: true,
         loader: async () => {
-          if (localStorage.getItem('uid'))
-            return null
-          else
-            return redirect('/login')
+          if (localStorage.getItem("uid")) return null;
+          else return redirect("/Login");
         },
         async lazy() {
           let { Home } = await import("./Components/Home");
@@ -29,13 +31,12 @@ const router = createBrowserRouter([
       {
         path: "afterlogin",
         loader: async () => {
-          if (!localStorage.getItem('uid'))
-            return redirect('/login')
-          else return null
+          if (!localStorage.getItem("uid")) return redirect("/login");
+          else return null;
         },
         async lazy() {
-          let { AfterLogin } = await import("./Components/AfterLogin");
-          return { Component: AfterLogin };
+          let { App } = await import("./App");
+          return { Component: App };
         },
       },
       {
@@ -48,8 +49,8 @@ const router = createBrowserRouter([
       {
         path: "Music",
         async lazy() {
-          let { HomeMusic} = await import("./Components/HomeMusic");
-          return { Component: HomeMusic};
+          let { HomeMusic } = await import("./Components/HomeMusic");
+          return { Component: HomeMusic };
         },
       },
       {

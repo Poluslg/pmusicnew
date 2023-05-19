@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 // import { getAuth, signOut } from "firebase/auth";
 
@@ -15,7 +15,7 @@ const BulbOn = () => {
       xmlns="http://www.w3.org/2000/svg"
       width="16"
       height="16"
-      fill="white"
+      fill="black"
       className="bi bi-lightbulb"
       viewBox="0 0 16 16"
     >
@@ -30,7 +30,7 @@ const BulbOff = () => {
       xmlns="http://www.w3.org/2000/svg"
       width="16"
       height="16"
-      fill="currentColor"
+      fill="white"
       className="bi bi-lightbulb-off-fill"
       viewBox="0 0 16 16"
     >
@@ -38,7 +38,6 @@ const BulbOff = () => {
     </svg>
   );
 };
-
 
 // const Home = () => {
 //   return (
@@ -87,25 +86,41 @@ export default function Header() {
 
   const Bar = () => {
     return (
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        strokeWidth="1.5"
+        stroke="currentColor"
+        className="w-6 h-6"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+        />
       </svg>
-
     );
   };
 
   const Xmark = () => {
     return (
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        strokeWidth="1.5"
+        stroke="currentColor"
+        className="w-6 h-6"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M6 18L18 6M6 6l12 12"
+        />
       </svg>
-
-    )
-  }
-
-
-
-
+    );
+  };
 
   // const navigate = useNavigate();
   // const HireMe = () => {
@@ -119,8 +134,7 @@ export default function Header() {
     // localStorage.removeItem("spotifyToken");
     localStorage.removeItem("uid");
     navigate("/login");
-  }
-
+  };
 
   return (
     <div className="sticky sm:relative z-[1] font-[Poppins]  h-fit">
@@ -130,8 +144,9 @@ export default function Header() {
             <span>PMusic</span>
           </div>
           <div
-            className={`nav-links  z-[1] duration-500 md:static absolute bg-white dark:bg-slate-700 md:min-h-fit pt-[5rem] pb-[3rem]  md:py-0 left-0 ${isMenuOpen ? "z-5  top-0 rounded-2xl " : "top-[-50vh] z-0  "
-              } md:w-auto w-full flex items-center px-5 bg-stone-100 `}
+            className={`nav-links  z-[1] duration-500 md:static absolute bg-white dark:bg-slate-700 md:min-h-fit pt-[5rem] pb-[3rem]  md:py-0 left-0 ${
+              isMenuOpen ? "z-5  top-0 rounded-2xl " : "top-[-50vh] z-0  "
+            } md:w-auto w-full flex items-center px-5 bg-stone-100 `}
           >
             <ul className="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8  ">
               {navigation.map((item) => (
