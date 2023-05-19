@@ -18,9 +18,9 @@ export const Login = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        localStorage.setItem("token", user.accessToken);
+        // localStorage.setItem("token", user.accessToken);
         localStorage.setItem("uid", user.uid);
-        console.log("token")
+        // console.log(user.uid)
         navigateTo("/afterlogin");
       })
       .catch((error) => {

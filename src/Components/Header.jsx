@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-// import "./Header.css";
 import { Link, useNavigate } from "react-router-dom";
+// import { getAuth, signOut } from "firebase/auth";
 
 const navigation = [
-  { name: "Home", link: "/", current: true },
-  { name: "About", link: "/About", current: false },
+  { name: "Home", link: "/afterlogin", current: true },
+  { name: "Music", link: "/Music", current: false },
   { name: "Projects", link: "/projects", current: false },
   { name: "Contact", link: "/contact", current: false },
 ];
@@ -38,6 +38,7 @@ const BulbOff = () => {
     </svg>
   );
 };
+
 
 // const Home = () => {
 //   return (
@@ -84,11 +85,42 @@ export default function Header() {
     setActiveMode((activeMode) => !activeMode);
   };
 
+  const Bar = () => {
+    return (
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+      </svg>
+
+    );
+  };
+
+  const Xmark = () => {
+    return (
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+
+    )
+  }
+
+
+
+
+
   // const navigate = useNavigate();
   // const HireMe = () => {
   //   window.location.href =
   //     "https://drive.google.com/file/d/1TAd0127dgJbHUZKLHWtEBWi2v6dJfusK/view";
   // };
+
+  const navigate = useNavigate();
+  const logout = () => {
+    // localStorage.removeItem("googleToken");
+    // localStorage.removeItem("spotifyToken");
+    localStorage.removeItem("uid");
+    navigate("/login");
+  }
+
 
   return (
     <div className="sticky sm:relative z-[1] font-[Poppins]  h-fit">
@@ -115,31 +147,20 @@ export default function Header() {
               ))}
             </ul>
           </div>
-
           <div className="flex items-center gap-6 z-[2]">
-            {/* <button
-              className="bg-[#a6c1ee] dark:bg-polu-500  text-black dark:text-white px-5 py-2 rounded-full hover:bg-polu-500  dark:hover:bg-[#a6c1ee] dark:hover:text-white  transition duration-500 ease-in-out sm:px-3  "
-              onClick={HireMe}
-            >
-              View CV
-            </button> */}
-            {/* <div>
-              <label className="switch">
-                <input type="checkbox" onClick={toggleMode} />
-                <span className="slider round"></span>
-              </label>
-            </div> */}
+            <div>
+              <button
+                className="hover:text-red-500 dark:hover:text-black dark:text-gray-300 transition ease-out delay-100 duration-500 "
+                onClick={logout}
+              >
+                logoout
+              </button>
+            </div>
             <div onClick={toggleMode} className=" cursor-pointer ">
               {activeMode ? <BulbOn /> : <BulbOff />}
             </div>
-            {/* <HiOutlineSun onClick={toggleMode} /> */}
-            <div className="md:hidden ">
-              <ion-icon
-                onClick={toggleMenu}
-                name={isMenuOpen ? "close" : "menu"}
-                className={`text-3xl md:hidden hidden ${isMenuOpen ? "hidden" : ""
-                  }`}
-              ></ion-icon>
+            <div className="md:hidden" onClick={toggleMenu}>
+              {isMenuOpen ? <Xmark /> : <Bar />}
             </div>
           </div>
         </nav>

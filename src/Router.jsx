@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, redirect, RouterProvider } from "react-router-dom";
 import Base from "./Components/Base";
 
 const router = createBrowserRouter([
@@ -8,6 +8,12 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
+        loader: async () => {
+          if (localStorage.getItem('uid'))
+            return null
+          else
+            return redirect('/login')
+        },
         async lazy() {
           let { Home } = await import("./Components/Home");
           return { Component: Home };
@@ -22,6 +28,11 @@ const router = createBrowserRouter([
       },
       {
         path: "afterlogin",
+        loader: async () => {
+          if (!localStorage.getItem('uid'))
+            return redirect('/login')
+          else return null
+        },
         async lazy() {
           let { AfterLogin } = await import("./Components/AfterLogin");
           return { Component: AfterLogin };
@@ -31,16 +42,23 @@ const router = createBrowserRouter([
         path: "Newac",
         async lazy() {
           let { Newac } = await import("./Components/Newac");
-          return { Component:Newac };
+          return { Component: Newac };
         },
       },
       {
-        path:"*",
+        path: "Music",
         async lazy() {
-            let { ErrorPage } = await import("./Components/ErrorPage");
-            return { Component: ErrorPage };
+          let { HomeMusic} = await import("./Components/HomeMusic");
+          return { Component: HomeMusic};
         },
-    },
+      },
+      {
+        path: "*",
+        async lazy() {
+          let { ErrorPage } = await import("./Components/ErrorPage");
+          return { Component: ErrorPage };
+        },
+      },
     ],
   },
 ]);
