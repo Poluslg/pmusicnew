@@ -35,8 +35,8 @@ const router = createBrowserRouter([
           else return null;
         },
         async lazy() {
-          let { App } = await import("./App");
-          return { Component: App };
+          let { AfterLogin } = await import("./Components/AfterLogin");
+          return { Component: AfterLogin };
         },
       },
       {
