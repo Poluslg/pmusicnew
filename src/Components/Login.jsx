@@ -2,8 +2,6 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-// import Afterlogin from "./Afterlogin";
 import { app } from "../Firebase";
 
 export const Login = () => {
@@ -18,9 +16,7 @@ export const Login = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        // localStorage.setItem("token", user.accessToken);
         localStorage.setItem("uid", user.uid);
-        // console.log(user.uid)
         navigateTo("/home/afterlogin");
       })
       .catch((error) => {
@@ -32,11 +28,9 @@ export const Login = () => {
           setError("Wrong password");
         } else if (error.code === "auth/internal-error") {
           setError("Server Error");
-        }
-        else if (error.code === "auth/missing-password") {
+        } else if (error.code === "auth/missing-password") {
           setError("Please enter the password");
-        }
-        else {
+        } else {
           setError(error.code);
         }
       });
@@ -53,39 +47,6 @@ export const Login = () => {
   const navigateTo = (path) => {
     navigate(path);
   };
-
-  const provider = new GoogleAuthProvider({
-    clientId:
-      "475738216650-h7cqlhdkietls673qhsos83fimfaa49i.apps.googleusercontent.com",
-    prompt: "select_account",
-  });
-
-  const gsing = () => {
-    signInWithPopup(auth, provider)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        localStorage.setItem("googleToken", user.accessToken);
-        localStorage.setItem("uid", user.uid);
-      })
-      .catch((error) => {
-        alert(error);
-      });
-  };
-
-
-
-  // useEffect(() => {
-  //   const hash = window.location.hash;
-  //   if (hash) {
-  //     const token = hash.substring(1).split("&")[0].split("=")[1];
-  //     if (token && token.length) {
-  //       localStorage.setItem("token", token); // Add key parameter to setItem
-  //       console.log(token);
-  //       navigateTo("/afterlogin"); // Make sure navigateTo function is defined/imported correctly
-  //     }
-  //   }
-  // }, []);
-
   return (
     <>
       <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
@@ -163,30 +124,6 @@ export const Login = () => {
                 Forgot your password?
               </Link>
             </div>
-          </div>
-
-          <div className=" logos w-full">
-            {/* <div className="googlelogoborder">
-              <button type="submit" onClick={gsing}>
-                Connect with google
-              </button>
-              <img
-                src="/google.svg"
-                alt="Google-Login"
-                className="googlelogo"
-              />
-            </div> */}
-
-            {/* <div className="spotifylogoborder">
-                <button type="submit" onClick={slogin}>
-                  Connect with Spotify
-                </button>
-                <img
-                  src="/spotify.png"
-                  alt="Google-Login"
-                  className="spotifylogo"
-                />
-              </div> */}
           </div>
           <div>
             <button

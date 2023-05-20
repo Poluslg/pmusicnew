@@ -11,7 +11,7 @@ export const AfterLogin = () => {
     <div>
       <div
         id="About"
-        className="bg-[#25CCF7] h-screen  dark:bg-gradient-to-r from-black to-polu-500"
+        className="bg-[#25CCF7] h-screen  dark:bg-gradient-to-r from-black to-polu-500 "
       >
         <div className="pt-10 "></div>
         <div className="relative mx-auto max-w-7xl px-4 sm:static sm:px-6 lg:px-8">
@@ -20,7 +20,7 @@ export const AfterLogin = () => {
               About My Self
             </h1>
             <p className="mt-4 text-xl text-gray-500">
-              Hi there! My name is Prahlad Biswas, and I'm a student pursuing a
+              {/* Hi there! My name is Prahlad Biswas, and I'm a student pursuing a
               Bachelor's degree in Information Technology. I have a strong
               passion for technology and am always eager to learn about the
               latest advancements in the field. Apart from my studies, I enjoy
@@ -28,7 +28,7 @@ export const AfterLogin = () => {
               tools. In my free time, I like to experiment with coding projects
               . My goal is to gain the skills and knowledge necessary to become
               a successful Web Developer , and I'm excited to see where my
-              education and passion for technology will take me in the future
+              education and passion for technology will take me in the future */}
             </p>
           </div>
 
