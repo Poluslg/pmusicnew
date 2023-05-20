@@ -1,4 +1,4 @@
-import {  useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
@@ -21,7 +21,7 @@ export const Login = () => {
         // localStorage.setItem("token", user.accessToken);
         localStorage.setItem("uid", user.uid);
         // console.log(user.uid)
-        navigateTo("/afterlogin");
+        navigateTo("/home/afterlogin");
       })
       .catch((error) => {
         if (error.code === "auth/user-not-found") {
@@ -36,12 +36,12 @@ export const Login = () => {
         else if (error.code === "auth/missing-password") {
           setError("Please enter the password");
         }
-         else {
+        else {
           setError(error.code);
         }
       });
   };
- 
+
   const cancel = () => {
     navigateTo("/");
   };
@@ -157,7 +157,7 @@ export const Login = () => {
 
             <div className="text-sm">
               <Link
-                href="/forgotpassword"
+                to="/forgotpassword"
                 className="font-medium text-indigo-600 hover:text-indigo-500"
               >
                 Forgot your password?
@@ -166,7 +166,7 @@ export const Login = () => {
           </div>
 
           <div className=" logos w-full">
-            <div className="googlelogoborder">
+            {/* <div className="googlelogoborder">
               <button type="submit" onClick={gsing}>
                 Connect with google
               </button>
@@ -175,7 +175,7 @@ export const Login = () => {
                 alt="Google-Login"
                 className="googlelogo"
               />
-            </div>
+            </div> */}
 
             {/* <div className="spotifylogoborder">
                 <button type="submit" onClick={slogin}>

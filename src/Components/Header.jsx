@@ -3,9 +3,9 @@ import { Link, useNavigate } from "react-router-dom";
 // import { getAuth, signOut } from "firebase/auth";
 
 const navigation = [
-  { name: "Home", link: "/afterlogin", current: true },
-  { name: "Music", link: "/Music", current: false },
-  { name: "Projects", link: "/projects", current: false },
+  { name: "Home", link: "/home/afterlogin", current: true },
+  { name: "Music", link: "/home/Music", current: false },
+  { name: "Polu", link: "/polu", current: false },
   { name: "Contact", link: "/contact", current: false },
 ];
 

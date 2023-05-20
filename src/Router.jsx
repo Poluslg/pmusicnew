@@ -7,27 +7,9 @@ import Base from "./Components/Base";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "home",
     element: <Base />,
     children: [
-      {
-        index: true,
-        loader: async () => {
-          if (localStorage.getItem("uid")) return null;
-          else return redirect("/Login");
-        },
-        async lazy() {
-          let { Home } = await import("./Components/Home");
-          return { Component: Home };
-        },
-      },
-      {
-        path: "Login",
-        async lazy() {
-          let { Login } = await import("./Components/Login");
-          return { Component: Login };
-        },
-      },
       {
         path: "afterlogin",
         loader: async () => {
@@ -39,13 +21,7 @@ const router = createBrowserRouter([
           return { Component: AfterLogin };
         },
       },
-      {
-        path: "Newac",
-        async lazy() {
-          let { Newac } = await import("./Components/Newac");
-          return { Component: Newac };
-        },
-      },
+     
       {
         path: "Music",
         async lazy() {
@@ -61,6 +37,41 @@ const router = createBrowserRouter([
         },
       },
     ],
+  },
+  {
+    path: "Login",
+    async lazy() {
+      let { Login } = await import("./Components/Login");
+      return { Component: Login };
+    },
+  },
+  {
+    path: '/',
+    async lazy() {
+      let { Home } = await import("./Components/Home");
+      return { Component: Home };
+    },
+  },
+  {
+    path: "*",
+    async lazy() {
+      let { ErrorPage } = await import("./Components/ErrorPage");
+      return { Component: ErrorPage };
+    },
+  },
+  {
+    path: "Newac",
+    async lazy() {
+      let { Newac } = await import("./Components/Newac");
+      return { Component: Newac };
+    },
+  },
+  {
+    path: "forgotPassword",
+    async lazy() {
+      let { Forgotpassword } = await import("./Components/Forgotpassword");
+      return { Component: Forgotpassword };
+    },
   },
 ]);
 

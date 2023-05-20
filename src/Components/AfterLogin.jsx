@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 // import Header from "./Header";
-export default function AfterLogin() {
+export const AfterLogin = () => {
   const navigate = useNavigate();
 
   const knowMore = () => {
