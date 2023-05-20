@@ -27,9 +27,9 @@ export const Newac = () => {
       .catch((error) => {
         if (error.code === "auth/email-already-in-use") {
           seterror("Account already exists !");
-        }else if (error.code === "auth/invalid-email") {
+        } else if (error.code === "auth/invalid-email") {
           seterror("Please enter a valid email address");
-        }else if (error.code === "auth/missing-password") {
+        } else if (error.code === "auth/missing-password") {
           seterror("Please enter the password");
         } else {
           seterror(error.code);
@@ -60,8 +60,8 @@ export const Newac = () => {
         <div className="mt-2 sm:mt-10">
           <div className="flex  justify-center">
             <form method="POST">
-              <div className=" overflow-hidden shadow  sm:rounded-md">
-                <div className="bg-gray-200 pt-2 rounded px-4 pb-[6rem] sm:p-6">
+              <div className=" shadow  sm:rounded-md">
+                <div className="bg-gray-200   pt-2 rounded px-4 pb-[6rem] ">
                   <div className=" text-center">{error}</div>
                   <div className="grid grid-cols-6 gap-6">
                     <div className="col-span-6 sm:col-span-4">
@@ -69,7 +69,7 @@ export const Newac = () => {
                         htmlFor="user-name"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
-                        User Name
+                        Display Name
                       </label>
                       <input
                         ref={inputUserName}
@@ -77,7 +77,7 @@ export const Newac = () => {
                         name="user-name"
                         id="user-name"
                         autoComplete="username"
-                        className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        className=" pl-2 mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                       />
                     </div>
                     <div className="col-span-6 sm:col-span-3">
@@ -93,7 +93,7 @@ export const Newac = () => {
                         name="firstname"
                         id="first-name"
                         autoComplete="given-name"
-                        className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        className=" pl-2 mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                       />
                     </div>
 
@@ -110,7 +110,7 @@ export const Newac = () => {
                         name="last-name"
                         id="last-name"
                         autoComplete="family-name"
-                        className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        className="mt-2 pl-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                       />
                     </div>
                   </div>
@@ -127,7 +127,7 @@ export const Newac = () => {
                       name="email-address"
                       id="email-address"
                       autoComplete="email"
-                      className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      className="mt-2 pl-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     />
                   </div>
 
@@ -144,7 +144,7 @@ export const Newac = () => {
                       name="phone-number"
                       id="phone-number"
                       autoComplete="tel-national"
-                      className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      className="mt-2 pl-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     />
                   </div>
                   <div className="block text-sm font-medium leading-6 text-gray-900 ">
@@ -159,7 +159,7 @@ export const Newac = () => {
                       type="password"
                       name="password"
                       id="password"
-                      className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      className="mt-2 pl-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     />
                   </div>
                   <div className="block text-sm font-medium leading-6 text-gray-900 ">
@@ -174,7 +174,7 @@ export const Newac = () => {
                       type="password"
                       name="password"
                       id="password"
-                      className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      className="mt-2 pl-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     />
                   </div>
                   <div className="flex items-center justify-between px-4 ">
