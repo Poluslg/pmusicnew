@@ -66,6 +66,13 @@ const router = createBrowserRouter([
       return { Component: Newac };
     },
   },
+  // {
+  //   path: "NewAccount",
+  //   async lazy() {
+  //     let { NewAccount } = await import("./Components/NewAccount");
+  //     return { Component: NewAccount };
+  //   },
+  // },
   {
     path: "forgotPassword",
     async lazy() {
