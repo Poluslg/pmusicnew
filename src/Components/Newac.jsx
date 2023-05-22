@@ -54,77 +54,75 @@ export const Newac = () => {
 
   return (
     <div className="bg-[#25CCF7] h-full dark:bg-gradient-to-r from-black to-polu-500 pt-[10px]">
-      <div className="md:w-[30rem] mx-auto p-4 border border-gray-600 shadow-md shadow-black mt-[0.5rem] rounded w-fit">
+      <div className="md:w-[30rem] mx-auto p-4 border border-gray-600 shadow-md shadow-black mt-[0.5rem] rounded w-fit mt-16 ">
         <h2 className="text-2xl font-bold mb-4 text-center dark:text-gray-300">
           Create a New Account
         </h2>
         <div className="text-center text-red-600">{error}</div>
         <form onSubmit={handleSubmit(onRegister)}>
-          <div className="mb-4">
-            <label className="block mb-2 dark:text-gray-300">Username</label>
+          <div className="mb-6">
             <input
               {...register("userName", { required: true })}
               className="w-full border border-gray-300 rounded p-2"
               type="text"
               name="userName"
               id="userName"
+              placeholder="Username"
               autoComplete="username"
             />
             <div>
               {errors.userName && (
                 <p className="text-red-600 text-x pt-2">
-                  {errors.userName && <p>Username is required.</p>}
+                  {errors.userName && <p>! Username is required.</p>}
                 </p>
               )}
             </div>
           </div>
           <div className="mb-4">
-            <label className="block mb-2 dark:text-gray-300">Email:</label>
             <input
               {...register("email", { required: true })}
               className="w-full border border-gray-300 rounded p-2"
               type="text"
               name="email"
               id="email"
+              placeholder="Email"
               // value={email}
               autoComplete="email"
             />
             <div>
               <p className="text-red-600 text-x pt-2">
-                {errors.email && <p>Email is required.</p>}
+                {errors.email && <p>! Email is required.</p>}
               </p>
             </div>
           </div>
           <div className="mb-4">
-            <label className="block mb-2 dark:text-gray-300">
-              Phone Number
-            </label>
             <input
               {...register("number", { required: true })}
               className="w-full border border-gray-300 rounded p-2"
               type="text"
               name="number"
               id="number"
+              placeholder="contact number"
               autoComplete="tel-national"
             />
             <div>
               <p className="text-red-600 text-x  pt-2">
-                {errors.number && <p>Phone Number is required.</p>}
+                {errors.number && <p> ! Number is required.</p>}
               </p>
             </div>
           </div>
           <div className="mb-4">
-            <label className="block mb-2 dark:text-gray-300">Password:</label>
             <input
               {...register("password", { required: true })}
               className="w-full border border-gray-300 rounded p-2"
               type="password"
               name="password"
               id="password"
+              placeholder="Password"
             />
             <div>
               <p className="text-red-600 text-x  pt-2">
-                {errors.password && <p>Password is required.</p>}
+                {errors.password && <p> ! Password is required.</p>}
               </p>
             </div>
           </div>

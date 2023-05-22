@@ -36,6 +36,10 @@ export const Login = () => {
       });
   };
 
+  const checkRememberMe = () => {
+    console.log("Checking remember");
+  };
+
   const cancel = () => {
     navigateTo("/");
   };
@@ -49,7 +53,7 @@ export const Login = () => {
   };
   return (
     <>
-      <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+      <div className="flex min-h-full items-center justify-center pb-12 px-4 sm:px-6 lg:px-8">
         <div className="w-full max-w-md space-y-8">
           <div>
             <img
@@ -61,7 +65,9 @@ export const Login = () => {
               Sign in to your account
             </h2>
           </div>
-
+          <div className=" text-center text-red-500 text-[16px] font-serif">
+            <h1>{error}</h1>
+          </div>
           <form className="-space-y-px rounded-md shadow-sm" onSubmit={login}>
             <div>
               <label htmlFor="email-address" className="sr-only">
@@ -72,7 +78,6 @@ export const Login = () => {
                 name="email"
                 type="email"
                 autoComplete="email"
-                required
                 className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                 placeholder="Email address"
                 value={email}
@@ -97,9 +102,7 @@ export const Login = () => {
               />
             </div>
           </form>
-          <div className="lerror">
-            <h1>{error}</h1>
-          </div>
+
           <div className="flex items-center justify-between">
             <div className="flex items-center">
               <input
@@ -107,6 +110,7 @@ export const Login = () => {
                 name="remember-me"
                 type="checkbox"
                 className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                onClick={checkRememberMe}
               />
               <label
                 htmlFor="remember-me"

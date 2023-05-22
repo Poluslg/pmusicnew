@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@babeard/svelte-heroicons": "^2.0.0-rc.0",
     "@headlessui/react": "^1.7.14",
     "@heroicons/react": "^2.0.18",
     "firebase": "^9.22.0",
