@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import {
   createBrowserRouter,
   redirect,
@@ -21,7 +22,6 @@ const router = createBrowserRouter([
           return { Component: AfterLogin };
         },
       },
-     
       {
         path: "Music",
         async lazy() {
@@ -29,6 +29,7 @@ const router = createBrowserRouter([
           return { Component: HomeMusic };
         },
       },
+
       {
         path: "*",
         async lazy() {
@@ -46,7 +47,7 @@ const router = createBrowserRouter([
     },
   },
   {
-    path: '/',
+    path: "/",
     async lazy() {
       let { Home } = await import("./Components/Home");
       return { Component: Home };
@@ -66,13 +67,6 @@ const router = createBrowserRouter([
       return { Component: Newac };
     },
   },
-  // {
-  //   path: "NewAccount",
-  //   async lazy() {
-  //     let { NewAccount } = await import("./Components/NewAccount");
-  //     return { Component: NewAccount };
-  //   },
-  // },
   {
     path: "forgotPassword",
     async lazy() {
@@ -80,9 +74,25 @@ const router = createBrowserRouter([
       return { Component: Forgotpassword };
     },
   },
+  {
+    path: "LearnMore",
+    async lazy() {
+      let { LearnMore } = await import("./Components/LearnMore");
+      return { Component: LearnMore };
+    },
+  },
 ]);
 
 const Router = () => {
+  useEffect(() => {
+    const uid = localStorage.getItem("uid");
+    if (uid) {
+      router.navigate("/home/afterlogin");
+    } else {
+      router.navigate("/");
+    }
+  }, []);
+
   return <RouterProvider router={router} />;
 };
 

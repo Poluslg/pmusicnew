@@ -11,8 +11,7 @@ export const Forgotpassword = () => {
   const handleSubmit = async () => {
     const auth = getAuth(app);
     sendPasswordResetEmail(auth, email)
-      .then((res) => {
-        console.log(res);
+      .then(() => {
         window.alert("Password reset email sent!");
         cancel();
       })

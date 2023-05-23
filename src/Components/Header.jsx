@@ -1,49 +1,11 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-// import { getAuth, signOut } from "firebase/auth";
 
 const navigation = [
   { name: "Home", link: "/home/afterlogin", current: true },
   { name: "Music", link: "/home/Music", current: false },
-  { name: "Polu", link: "/polu", current: false },
   { name: "Contact", link: "/contact", current: false },
 ];
-
-const BulbOn = () => {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="16"
-      height="16"
-      fill="black"
-      className="bi bi-lightbulb"
-      viewBox="0 0 16 16"
-    >
-      <path d="M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13a.5.5 0 0 1 0 1 .5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1 0-1 .5.5 0 0 1 0-1 .5.5 0 0 1-.46-.302l-.761-1.77a1.964 1.964 0 0 0-.453-.618A5.984 5.984 0 0 1 2 6zm6-5a5 5 0 0 0-3.479 8.592c.263.254.514.564.676.941L5.83 12h4.342l.632-1.467c.162-.377.413-.687.676-.941A5 5 0 0 0 8 1z" />
-    </svg>
-  );
-};
-
-const BulbOff = () => {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="16"
-      height="16"
-      fill="black"
-      className="bi bi-lightbulb-off-fill"
-      viewBox="0 0 16 16"
-    >
-      <path d="M2 6c0-.572.08-1.125.23-1.65l8.558 8.559A.5.5 0 0 1 10.5 13h-5a.5.5 0 0 1-.46-.302l-.761-1.77a1.964 1.964 0 0 0-.453-.618A5.984 5.984 0 0 1 2 6zm10.303 4.181L3.818 1.697a6 6 0 0 1 8.484 8.484zM5 14.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1-.5-.5zM2.354 1.646a.5.5 0 1 0-.708.708l12 12a.5.5 0 0 0 .708-.708l-12-12z" />
-    </svg>
-  );
-};
-
-// const Home = () => {
-//   return (
-
-//   );
-// };
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -121,17 +83,38 @@ export default function Header() {
       </svg>
     );
   };
+  const BulbOn = () => {
+    return (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        fill="white"
+        className="bi bi-lightbulb"
+        viewBox="0 0 16 16"
+      >
+        <path d="M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13a.5.5 0 0 1 0 1 .5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1 0-1 .5.5 0 0 1 0-1 .5.5 0 0 1-.46-.302l-.761-1.77a1.964 1.964 0 0 0-.453-.618A5.984 5.984 0 0 1 2 6zm6-5a5 5 0 0 0-3.479 8.592c.263.254.514.564.676.941L5.83 12h4.342l.632-1.467c.162-.377.413-.687.676-.941A5 5 0 0 0 8 1z" />
+      </svg>
+    );
+  };
 
-  // const navigate = useNavigate();
-  // const HireMe = () => {
-  //   window.location.href =
-  //     "https://drive.google.com/file/d/1TAd0127dgJbHUZKLHWtEBWi2v6dJfusK/view";
-  // };
+  const BulbOff = () => {
+    return (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        fill="black"
+        className="bi bi-lightbulb-off-fill"
+        viewBox="0 0 16 16"
+      >
+        <path d="M2 6c0-.572.08-1.125.23-1.65l8.558 8.559A.5.5 0 0 1 10.5 13h-5a.5.5 0 0 1-.46-.302l-.761-1.77a1.964 1.964 0 0 0-.453-.618A5.984 5.984 0 0 1 2 6zm10.303 4.181L3.818 1.697a6 6 0 0 1 8.484 8.484zM5 14.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1-.5-.5zM2.354 1.646a.5.5 0 1 0-.708.708l12 12a.5.5 0 0 0 .708-.708l-12-12z" />
+      </svg>
+    );
+  };
 
   const navigate = useNavigate();
   const logout = () => {
-    // localStorage.removeItem("googleToken");
-    // localStorage.removeItem("spotifyToken");
     localStorage.removeItem("uid");
     navigate("/login");
   };
@@ -168,7 +151,7 @@ export default function Header() {
                 className="hover:text-red-500 dark:hover:text-black dark:text-gray-300 transition ease-out delay-100 duration-500 "
                 onClick={logout}
               >
-                logoout
+                Logout
               </button>
             </div>
             <div onClick={toggleMode} className=" cursor-pointer ">

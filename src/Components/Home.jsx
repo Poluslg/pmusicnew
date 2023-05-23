@@ -1,12 +1,9 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-// import { getAuth, signOut } from "firebase/auth";
 
 const navigation = [
   { name: "Home", link: "/", current: true },
-  { name: "Music", link: "/home/Music", current: false },
-  { name: "Polu", link: "/polu", current: false },
-  { name: "Contact", link: "/contact", current: false }
+  { name: "Contact", link: "/contact", current: false },
 ];
 
 const BulbOn = () => {
@@ -39,12 +36,6 @@ const BulbOff = () => {
   );
 };
 
-// const Home = () => {
-//   return (
-
-//   );
-// };
-
 export const Home = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeMode, setActiveMode] = useState(false);
@@ -70,7 +61,6 @@ export const Home = () => {
     } else {
       setIsMenuOpen(!isMenuOpen);
     }
-    console.log("click");
   };
 
   const toggleMode = () => {
@@ -123,72 +113,133 @@ export const Home = () => {
     );
   };
 
-  // const navigate = useNavigate();
-  // const HireMe = () => {
-  //   window.location.href =
-  //     "https://drive.google.com/file/d/1TAd0127dgJbHUZKLHWtEBWi2v6dJfusK/view";
-  // };
-
   const navigate = useNavigate();
   const Login = () => {
-    // localStorage.removeItem("googleToken");
-    // localStorage.removeItem("spotifyToken");
-    // localStorage.removeItem("uid");
     navigate("/login");
   };
+  const newac=()=>{
+    navigate("/newac");
+  }
+  const Learn=()=>{
+    navigate("/learnMore");
+  }
 
   return (
-    <div className="sticky sm:relative z-[1] font-[Poppins]  h-fit">
-      <header className="bg-white   dark:bg-slate-700 dark:border-slate-700 dark:shadow-cyan-500/30 ">
-        <nav className="flex justify-between items-center w-[92%] mx-auto h-[3rem]">
-          <div className=" z-[2] text-[15px]  font-[Poppins] dark:text-gray-300  ">
-            <span>PMusic</span>
-          </div>
-          <div
-            className={`nav-links  z-[1] duration-500 md:static absolute bg-white dark:bg-slate-700 md:min-h-fit pt-[5rem] pb-[3rem]  md:py-0 left-0 ${isMenuOpen ? "z-5  top-0 rounded-2xl " : "top-[-50vh] z-0  "
+    <>
+      <div className="sticky sm:relative z-[1] font-[Poppins]  h-fit">
+        <header className="bg-white   dark:bg-slate-700 dark:border-slate-700 dark:shadow-cyan-500/30 shadow-slate-300 shadow-md">
+          <nav className="flex justify-between items-center w-[92%] mx-auto h-[3rem]">
+            <div className=" z-[2] text-[15px]  font-[Poppins] dark:text-gray-300  ">
+              <div className="flex lg:flex-1">
+                <a href="#" className="-m-1.5 p-1.5">
+                  <span className="sr-only">PMusic</span>
+                  <img
+                    className="h-8 w-auto"
+                    src="/favicon.ico"
+                    alt="PMusic Logo"
+                  />
+                </a>
+              </div>
+            </div>
+            <div
+              className={`nav-links  z-[1] duration-500 md:static absolute bg-white dark:bg-slate-700 md:min-h-fit pt-[5rem] pb-[3rem]  md:py-0 left-0 ${
+                isMenuOpen ? "z-5  top-0 rounded-2xl " : "top-[-50vh] z-0  "
               } md:w-auto w-full flex items-center px-5 bg-stone-100 `}
-          >
-            <ul className="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8  ">
-              {navigation.map((item) => (
-                <li key={item.name}>
+            >
+              <ul className="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8  ">
+                {navigation.map((item) => (
+                  <li key={item.name}>
+                    <Link
+                      to={item.link}
+                      className="hover:text-red-500 dark:hover:text-black dark:text-gray-300 transition ease-out delay-100 duration-500"
+                      onClick={toggleMenu}
+                    >
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
+                <li>
                   <Link
-                    to={item.link}
-                    className="hover:text-red-500 dark:hover:text-black dark:text-gray-300 transition ease-out delay-100 duration-500 "
+                    to={"/login"}
+                    className="hover:text-red-500 dark:hover:text-black dark:text-gray-300 transition ease-out delay-100 duration-500 md:hidden"
                     onClick={toggleMenu}
                   >
-                    {item.name}
+                    Login
                   </Link>
                 </li>
-              ))}
-              <li>
-                <Link
-                  to={'/login'}
-                  className="hover:text-red-500 dark:hover:text-black dark:text-gray-300 transition ease-out delay-100 duration-500 md:hidden"
-                  onClick={toggleMenu}
+              </ul>
+            </div>
+            <div className="flex items-center gap-6 z-[2]">
+              <div className=" p-1  flex">
+                <button
+                  className="hover:text-red-500 dark:hover:text-black dark:text-gray-300 transition ease-out delay-100 duration-500 hidden lg:block md:block "
+                  onClick={Login}
                 >
                   Login
-                </Link>
-              </li>
-            </ul>
-          </div>
-          <div className="flex items-center gap-6 z-[2]">
-            <div>
+                </button>
+              </div>
+              <div onClick={toggleMode} className=" cursor-pointer ">
+                {activeMode ? <BulbOn /> : <BulbOff />}
+              </div>
+              <div className="md:hidden" onClick={toggleMenu}>
+                {isMenuOpen ? <Xmark /> : <Bar />}
+              </div>
+            </div>
+          </nav>
+        </header>
+      </div>
+      <div className="relative isolate px-6 pt-14 lg:px-8 dark:bg-black">
+        <div
+          className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80 "
+          aria-hidden="true"
+        >
+          <div
+            className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#360117] to-[#00d9ff] sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
+            style={{
+              clipPath:
+                "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
+            }}
+          />
+        </div>
+        <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56 ">
+          {/* <div className="hidden sm:mb-8 sm:flex sm:justify-center">
+            <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 dark:text-gray-300 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
+              Announcing our next round of funding.{" "}
+              <a href="#" className="font-semibold text-indigo-600">
+                <span className="absolute inset-0" aria-hidden="true" />
+                Read more <span aria-hidden="true">&rarr;</span>
+              </a>
+            </div>
+          </div> */}
+          <div className="text-center">
+            <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-300 sm:text-6xl">
+              Wellcome To PMusic
+            </h1>
+            <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
+              <span>
+                PMusic is an excellent free music streaming platform that offers
+                a vast collection of songs to enjoy at no cost. It's a go-to
+                destination for music lovers seeking unlimited listening
+                pleasure without any subscription fees.
+              </span>
+            </p>
+            <div className="mt-10 flex items-center justify-center gap-x-6">
               <button
-                className="hover:text-red-500 dark:hover:text-black dark:text-gray-300 transition ease-out delay-100 duration-500 hidden lg:block "
-                onClick={Login}
+                 onClick={newac}
+                className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white dark:text-black shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
-                Login
+                Get started
+              </button>
+              <button
+                onClick={Learn}
+                className="text-sm font-semibold leading-6 text-gray-900 dark:text-gray-300"
+              >
+                Learn more <span aria-hidden="true">→</span>
               </button>
             </div>
-            <div onClick={toggleMode} className=" cursor-pointer ">
-              {activeMode ? <BulbOn /> : <BulbOff />}
-            </div>
-            <div className="md:hidden" onClick={toggleMenu}>
-              {isMenuOpen ? <Xmark /> : <Bar />}
-            </div>
           </div>
-        </nav>
-      </header>
-    </div>
+        </div>
+      </div>
+    </>
   );
 };

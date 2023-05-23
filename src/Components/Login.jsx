@@ -10,6 +10,7 @@ export const Login = () => {
   const auth = getAuth(app);
   const navigate = useNavigate();
   const [error, setError] = useState("");
+  const [rememberMe, setRememberMe] = useState(false);
 
   const login = (event) => {
     event.preventDefault();
@@ -35,9 +36,8 @@ export const Login = () => {
         }
       });
   };
-
-  const checkRememberMe = () => {
-    console.log("Checking remember");
+  const handleRememberMeChange = () => {
+    setRememberMe(!rememberMe);
   };
 
   const cancel = () => {
@@ -110,7 +110,7 @@ export const Login = () => {
                 name="remember-me"
                 type="checkbox"
                 className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
-                onClick={checkRememberMe}
+                onClick={handleRememberMeChange}
               />
               <label
                 htmlFor="remember-me"
