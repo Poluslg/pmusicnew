@@ -6,7 +6,7 @@ const navigation = [
   { name: "Home", link: "/", current: true },
   { name: "Music", link: "/home/Music", current: false },
   { name: "Polu", link: "/polu", current: false },
-  { name: "Contact", link: "/contact", current: false },
+  { name: "Contact", link: "/contact", current: false }
 ];
 
 const BulbOn = () => {
@@ -130,10 +130,10 @@ export const Home = () => {
   // };
 
   const navigate = useNavigate();
-  const logout = () => {
+  const Login = () => {
     // localStorage.removeItem("googleToken");
     // localStorage.removeItem("spotifyToken");
-    localStorage.removeItem("uid");
+    // localStorage.removeItem("uid");
     navigate("/login");
   };
 
@@ -145,9 +145,8 @@ export const Home = () => {
             <span>PMusic</span>
           </div>
           <div
-            className={`nav-links  z-[1] duration-500 md:static absolute bg-white dark:bg-slate-700 md:min-h-fit pt-[5rem] pb-[3rem]  md:py-0 left-0 ${
-              isMenuOpen ? "z-5  top-0 rounded-2xl " : "top-[-50vh] z-0  "
-            } md:w-auto w-full flex items-center px-5 bg-stone-100 `}
+            className={`nav-links  z-[1] duration-500 md:static absolute bg-white dark:bg-slate-700 md:min-h-fit pt-[5rem] pb-[3rem]  md:py-0 left-0 ${isMenuOpen ? "z-5  top-0 rounded-2xl " : "top-[-50vh] z-0  "
+              } md:w-auto w-full flex items-center px-5 bg-stone-100 `}
           >
             <ul className="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8  ">
               {navigation.map((item) => (
@@ -161,25 +160,26 @@ export const Home = () => {
                   </Link>
                 </li>
               ))}
+              <li>
+                <Link
+                  to={'/login'}
+                  className="hover:text-red-500 dark:hover:text-black dark:text-gray-300 transition ease-out delay-100 duration-500 md:hidden"
+                  onClick={toggleMenu}
+                >
+                  Login
+                </Link>
+              </li>
             </ul>
           </div>
-          <div className="hidden lg:flex lg:flex-1 lg:justify-end pr-14">
-            <a
-              href="/login"
-              className="text-sm font-semibold leading-6 text-gray-900"
-            >
-              Log in <span aria-hidden="true">&rarr;</span>
-            </a>
-          </div>
           <div className="flex items-center gap-6 z-[2]">
-            {/* <div>
+            <div>
               <button
-                className="hover:text-red-500 dark:hover:text-black dark:text-gray-300 transition ease-out delay-100 duration-500 "
-                onClick={logout}
+                className="hover:text-red-500 dark:hover:text-black dark:text-gray-300 transition ease-out delay-100 duration-500 hidden lg:block "
+                onClick={Login}
               >
-                logoout
+                Login
               </button>
-            </div> */}
+            </div>
             <div onClick={toggleMode} className=" cursor-pointer ">
               {activeMode ? <BulbOn /> : <BulbOff />}
             </div>
