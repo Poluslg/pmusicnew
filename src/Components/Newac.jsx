@@ -54,7 +54,7 @@ export const Newac = () => {
 
   return (
     <div className="bg-[#25CCF7] h-full dark:bg-gradient-to-r from-black to-polu-500 pt-[10px]">
-      <div className="md:w-[30rem] mx-auto p-4 border border-gray-600 shadow-md shadow-black mt-[0.5rem] rounded w-fit mt-16 ">
+      <div className="md:w-[30rem] mx-auto p-4 border border-gray-600 shadow-md shadow-black mt-[0.5rem] rounded w-fit ">
         <h2 className="text-2xl font-bold mb-4 text-center dark:text-gray-300">
           Create a New Account
         </h2>

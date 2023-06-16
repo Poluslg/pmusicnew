@@ -10,7 +10,7 @@ export const Login = () => {
   const auth = getAuth(app);
   const navigate = useNavigate();
   const [error, setError] = useState("");
-  const [rememberMe, setRememberMe] = useState(false);
+  // const [rememberMe, setRememberMe] = useState(false);
 
   const login = (event) => {
     event.preventDefault();
@@ -36,9 +36,9 @@ export const Login = () => {
         }
       });
   };
-  const handleRememberMeChange = () => {
-    setRememberMe(!rememberMe);
-  };
+  // const handleRememberMeChange = () => {
+  //   setRememberMe(!rememberMe);
+  // };
 
   const cancel = () => {
     navigateTo("/");
@@ -53,7 +53,7 @@ export const Login = () => {
   };
   return (
     <>
-      <div className="flex min-h-full items-center justify-center pb-12 px-4 sm:px-6 lg:px-8">
+      <div className="flex min-h-full items-center justify-center pb-12 px-4 sm:px-6 lg:px-8 dark:bg-gray-800">
         <div className="w-full max-w-md space-y-8">
           <div>
             <img
@@ -61,7 +61,7 @@ export const Login = () => {
               src="/favicon.ico"
               alt="PMusic"
             />
-            <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
+            <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
               Sign in to your account
             </h2>
           </div>
@@ -104,7 +104,7 @@ export const Login = () => {
           </form>
 
           <div className="flex items-center justify-between">
-            <div className="flex items-center">
+            {/* <div className="flex items-center">
               <input
                 id="remember-me"
                 name="remember-me"
@@ -118,16 +118,7 @@ export const Login = () => {
               >
                 Remember me
               </label>
-            </div>
-
-            <div className="text-sm">
-              <Link
-                to="/forgotpassword"
-                className="font-medium text-indigo-600 hover:text-indigo-500"
-              >
-                Forgot your password?
-              </Link>
-            </div>
+            </div> */}
           </div>
           <div>
             <button
@@ -138,6 +129,14 @@ export const Login = () => {
               <span className="absolute inset-y-0 left-0 flex items-center pl-3"></span>
               Sign in
             </button>
+            <div className="text-sm">
+              <Link
+                to="/forgotpassword"
+                className=" relative flex w-full pt-2 pl-2  font-medium  text-indigo-600 hover:text-indigo-500 dark:text-white"
+              >
+                Forgot your password?
+              </Link>
+            </div>
             <div className="flex items-center justify-between pt-4">
               <button
                 type="submit"
@@ -146,6 +145,7 @@ export const Login = () => {
               >
                 Create a new Account
               </button>
+
               <button
                 type="submit"
                 onClick={cancel}

@@ -188,7 +188,7 @@ export const Home = () => {
           </nav>
         </header>
       </div>
-      <div className="relative isolate px-6 pt-14 lg:px-8 dark:bg-black">
+      <div className="relative isolate px-6 pt-14 lg:px-8 dark:bg-black h-screen">
         <div
           className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80 "
           aria-hidden="true"
@@ -226,7 +226,7 @@ export const Home = () => {
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <button
                  onClick={newac}
-                className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white dark:text-black shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                className="rounded-md bg-[#35a99d] px-3.5 py-2.5 text-sm font-semibold text-white dark:text-black shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 Get started
               </button>
