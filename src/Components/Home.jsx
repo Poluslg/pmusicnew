@@ -117,12 +117,9 @@ export const Home = () => {
   const Login = () => {
     navigate("/login");
   };
-  const newac=()=>{
-    navigate("/newac");
-  }
-  const Learn=()=>{
+  const Learn = () => {
     navigate("/learnMore");
-  }
+  };
 
   return (
     <>
@@ -202,15 +199,6 @@ export const Home = () => {
           />
         </div>
         <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56 ">
-          {/* <div className="hidden sm:mb-8 sm:flex sm:justify-center">
-            <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 dark:text-gray-300 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-              Announcing our next round of funding.{" "}
-              <a href="#" className="font-semibold text-indigo-600">
-                <span className="absolute inset-0" aria-hidden="true" />
-                Read more <span aria-hidden="true">&rarr;</span>
-              </a>
-            </div>
-          </div> */}
           <div className="text-center">
             <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-300 sm:text-6xl">
               Wellcome To PMusic
@@ -218,15 +206,15 @@ export const Home = () => {
             <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
               <span>
                 PMusic is an excellent free music streaming platform that offers
-                a vast collection of songs to enjoy at no cost. It's a go-to
+                a vast collection of songs to enjoy at no cost. It is a go-to
                 destination for music lovers seeking unlimited listening
                 pleasure without any subscription fees.
               </span>
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <button
-                 onClick={newac}
-                className="rounded-md bg-[#35a99d] px-3.5 py-2.5 text-sm font-semibold text-white dark:text-black shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                onClick={Login}
+                className="rounded-md bg-[#35a99d] px-3.5 py-2.5 text-sm font-semibold text-white dark:text-black shadow-sm hover:bg-[#163835] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 Get started
               </button>

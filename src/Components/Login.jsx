@@ -43,17 +43,16 @@ export const Login = () => {
   const cancel = () => {
     navigateTo("/");
   };
-
-  const newac = () => {
-    navigateTo("/Newac");
-  };
-
+  const Newac=()=>{
+    navigateTo("/newac")
+  }
   const navigateTo = (path) => {
     navigate(path);
   };
   return (
     <>
       <div className="flex min-h-full items-center justify-center pb-12 px-4 sm:px-6 lg:px-8 dark:bg-gray-800">
+        {/* <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8"> */}
         <div className="w-full max-w-md space-y-8">
           <div>
             <img
@@ -103,8 +102,8 @@ export const Login = () => {
             </div>
           </form>
 
-          <div className="flex items-center justify-between">
-            {/* <div className="flex items-center">
+          {/* <div className="flex items-center justify-between">
+            <div className="flex items-center">
               <input
                 id="remember-me"
                 name="remember-me"
@@ -118,8 +117,8 @@ export const Login = () => {
               >
                 Remember me
               </label>
-            </div> */}
-          </div>
+            </div>
+          </div> */}
           <div>
             <button
               type="submit"
@@ -129,31 +128,40 @@ export const Login = () => {
               <span className="absolute inset-y-0 left-0 flex items-center pl-3"></span>
               Sign in
             </button>
-            <div className="text-sm">
-              <Link
-                to="/forgotpassword"
-                className=" relative flex w-full pt-2 pl-2  font-medium  text-indigo-600 hover:text-indigo-500 dark:text-white"
-              >
-                Forgot your password?
-              </Link>
-            </div>
             <div className="flex items-center justify-between pt-4">
+              <div className="text-sm">
+                <Link
+                  to="/forgotpassword"
+                  className=" relative flex pt-1 w-[10rem] font-medium  text-indigo-600 hover:text-indigo-500 dark:text-white"
+                >
+                  Forgot your password?
+                </Link>
+              </div>
               <button
+                type="submit"
+                onClick={cancel}
+                className="group relative flex w-full place-self-auto md:pl-[15rem] justify-center font-medium text-red-600 hover:text-indigo-500"
+              >
+                Cancel
+              </button>
+
+              {/* <button
                 type="submit"
                 onClick={newac}
                 className="group relative flex w-full justify-center font-medium text-red-600 hover:text-indigo-500"
               >
                 Create a new Account
-              </button>
-
-              <button
-                type="submit"
-                onClick={cancel}
-                className="group relative flex w-full justify-center font-medium text-red-600 hover:text-indigo-500"
-              >
-                Cancel
-              </button>
+              </button> */}
             </div>
+            <p className="mt-10 text-center text-sm text-gray-500">
+              Not a member?{" "}
+              <button
+                onClick={Newac}
+                className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
+              >
+                Start a your free trial
+              </button>
+            </p>
           </div>
         </div>
       </div>

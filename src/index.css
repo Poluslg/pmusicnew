@@ -20,5 +20,6 @@ body {
 #root {
   font-family: "Fjalla One", "Helvetica Neue", "SANS-SERIF";
   overflow-y: auto;
+  overflow: hidden;
   height: 100%;
 }
