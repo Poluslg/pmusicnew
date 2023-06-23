@@ -19,9 +19,9 @@ export const Forgotpassword = () => {
         if (error.code === "auth/user-not-found") {
           setError("Email id not registered");
         } else if (error.code === "auth/invalid-email") {
-          setError("Please enter a valid email address");
+          setError("Please enter a valid email address !");
         } else if (error.code === "auth/missing-email") {
-          setError("Please enter email address");
+          setError("Please enter email address !");
         } else {
           setError(error.code);
         }
@@ -39,14 +39,14 @@ export const Forgotpassword = () => {
     <div className="bg-[#25CCF7] h-screen dark:bg-gradient-to-r from-black to-polu-500 place-items-center pt-[10rem]">
       <div className="mt-10  w-30 mx-7 sm:mx-auto sm:w-full sm:max-w-sm ">
         <div className=" text-center text-xl  pb-8">
-          <h1>{error}</h1>
+          <h1 className="text-black dark:text-white">{error}</h1>
         </div>
         <div>
           <label
             htmlFor="email"
-            className="block text-sm font-medium leading-6 text-gray-900"
+            className="block text-sm font-medium leading-6 text-gray-900 dark:text-white"
           >
-            Email address
+            Please enter your email  to find your account.
           </label>
           <div className="mt-2">
             <input
@@ -55,6 +55,7 @@ export const Forgotpassword = () => {
               type="email"
               autoComplete="email"
               required
+              placeholder="Email"
               className="block w-full rounded-md border-0 pl-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               onChange={(e) => setEmail(e.target.value)}
             />

@@ -52,6 +52,15 @@ export const Newac = () => {
     navigate("/Login");
   };
 
+  // const openTerms=()=>{
+  //   window.alert("Click");
+
+  // }
+
+  // const checkbox=()=>{
+  //   window.alert("Click");
+  // }
+
   return (
     <div className="bg-[#25CCF7] h-full dark:bg-gradient-to-r from-black to-polu-500 pt-[10px]">
       <div className="md:w-[30rem] mx-auto p-4 border border-gray-600 shadow-md shadow-black mt-[0.5rem] rounded w-fit ">
@@ -126,13 +135,42 @@ export const Newac = () => {
               </p>
             </div>
           </div>
+          <div className="font-semibold leading-6 text-blue-600 dark:text-white   ml-2 pb-1">
+            {/* <input type="checkbox" name="terms and conditions" id="checkbox" onChange={checkbox} />
+            <button className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500 dark:text-white dark:hover:text-gray-300 ml-2 pb-1" onClick={openTerms} >
+              Agree terms and conditions
+            </button> */}
+            {/* <p className="mt-10  text-sm text-black dark:text-white">
+              Not a member?{" "}
+             
+              <button className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500 dark:text-white dark:hover:text-gray-300">
+              Agree terms and conditions
+              </button>
+            </p> */}
+            <p>
+              By clicking Sign Up you agree to our{" "}
+              <a
+                href="#"
+                className="  hover:text-indigo-400 dark:text-red-500 underline "
+              >
+                Terms{" "}
+              </a>{" "}
+              , and
+              <a
+                href="#"
+                className=" ml-[5px] hover:text-indigo-400 dark:text-red-500 underline "
+              >
+                Privacy Policy
+              </a>{" "}
+            </p>
+          </div>
           <div className="flex items-center justify-between px-4">
             <div className="px-4 py-3 text-right sm:px-6">
               <button
                 type="submit"
                 className="inline-flex justify-center rounded-md bg-indigo-600 py-2 px-3 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
               >
-                Save
+                Sing up
               </button>
             </div>
             <div className="px-4 py-3 text-right sm:px-6 dark:text-gray-300">

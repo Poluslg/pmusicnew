@@ -1,13 +1,7 @@
-import React from "react";
-
-
-
-
 export const ErrorPage = () => {
   return (
-    
-      <div className="bg-[#25CCF7] h-screen  dark:bg-gradient-to-r from-black to-polu-500 place-items-center">
-        <div className=" relative  flex pt-16 flex-col items-center ">
+    <div className="bg-[#25CCF7] h-screen  dark:bg-gradient-to-r from-black to-polu-500 place-items-center">
+      <div className=" relative  flex pt-16 flex-col items-center ">
         <main className="grid min-h-full place-items-center  px-6 py-24 sm:py-32 lg:px-8">
           <div className="text-center">
             <p className=" text-5xl font-semibold text-indigo-600 dark:text-white">
@@ -26,7 +20,6 @@ export const ErrorPage = () => {
               >
                 Go back home
               </a>
-             
             </div>
           </div>
         </main>
