@@ -14,12 +14,29 @@ body {
   width: 100%;
   margin: 0px;
   padding: 0px;
-  overflow: hidden;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 1px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: transparent; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: transparent; 
 }
 
 #root {
   font-family: "Fjalla One", "Helvetica Neue", "SANS-SERIF";
-  overflow-y: auto;
-  overflow: hidden;
+
   height: 100%;
 }
