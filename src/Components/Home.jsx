@@ -185,7 +185,7 @@ export const Home = () => {
           </nav>
         </header>
       </div>
-      <div className="relative isolate px-6 pt-14 lg:px-8 dark:bg-black h-screen ">
+      <div className="relative isolate px-6 pt-14 lg:px-8 dark:bg-black h-full ">
         <div
           className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80 "
           aria-hidden="true"

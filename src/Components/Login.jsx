@@ -171,7 +171,7 @@ export const Login = () => {
                   onClick={Newac}
                   className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
                 >
-                  Start a your free trial
+                  Start listening
                 </button>
               </p>
             </div>
